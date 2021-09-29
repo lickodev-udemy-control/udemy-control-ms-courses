@@ -1,0 +1,22 @@
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+  instance:
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+spring:
+  application:
+    name: udemy-control-ms-courses
+  cloud:
+    config:
+      uri:
+      - http://localhost:8888
+      label: master
+  profiles:
+    active:
+    - dev
+server:
+  port: ${PORT:0}
+#https://www.baeldung.com/spring-security-registered-filters; https://howtodoinjava.com/spring-boot2/logging/configure-logging-application-yml/
+#logging:#  level: 
+#    org.springframework.security.web.FilterChainProxy: debug
